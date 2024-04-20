@@ -19,4 +19,4 @@ cd hosting && yarn dev
 1. Setup the server and hosting
 2. Open the browser and go to `http://localhost:3000`
 3. Upload an image
-4. Click each button to check the processing results.
+4. Click each button to check the processing results.# opencv-demo

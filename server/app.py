@@ -25,7 +25,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/process-image/")
+@app.post("/image/draw")
 async def process_image(request: RectangleRequest):
     """
     複数の四角形の線を引いた画像を返却するエンドポイント。
@@ -46,7 +46,7 @@ async def process_image(request: RectangleRequest):
     
     return JSONResponse(content={'processed_image_base64': processed_image_base64})
 
-@app.post("/crop-image/")
+@app.post("/image/crop")
 async def crop_image_api(request: RectangleRequest):
     """
     指定された四角形の座標に基づいて画像をクロップするエンドポイント。

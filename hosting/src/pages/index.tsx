@@ -3,10 +3,10 @@ import { ChangeEvent, useState } from 'react';
 
 // APIリクエストデータを作成
 const rectangles = [
-    [50, 50, 100, 50],  // 四角形1 (x, y, w, h)
-    [200, 200, 100, 50],  // 四角形2 (x, y, w, h)
-    [345, 300, 100, 50],  // 四角形3 (x, y, w, h)
-    [400, 410, 100, 50],  // 四角形4 (x, y, w, h)
+    [50, 247, 100, 50],  // 四角形1 (x, y, w, h)
+    [178, 256, 100, 50],  // 四角形2 (x, y, w, h)
+    [310, 254, 100, 50],  // 四角形3 (x, y, w, h)
+    [460, 261, 100, 50],  // 四角形4 (x, y, w, h)
     // 必要に応じて他の四角形座標を追加できます
 ];
 
@@ -88,7 +88,7 @@ export default function Home() {
             // APIリクエストを送信
             const myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
-            const response = await fetch('http://localhost:8000/crop-image/', {
+            const response = await fetch('http://localhost:8000/image/crop', {
                 method: 'POST',
                 headers: myHeaders,
                 body: JSON.stringify(data),
@@ -115,14 +115,14 @@ export default function Home() {
             const data = {
                 image_base64: base64Image,
                 rectangle_coords: rectangles,
-                color: [0, 255, 0], // 色 (B, G, R)
+                color: [0, 0, 255], // 色 (B, G, R)
                 thickness: 2 // 太さ
             };
 
             // APIリクエストを送信
             const myHeaders = new Headers();
             myHeaders.append("Content-Type", "application/json");
-            const response = await fetch('http://localhost:8000/process-image/', {
+            const response = await fetch('http://localhost:8000/image/draw', {
                 method: 'POST',
                 headers: myHeaders,
                 body: JSON.stringify(data),
